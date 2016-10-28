@@ -1,13 +1,12 @@
+#coding:utf-8
 import tornado.ioloop
 import tornado.web
+import Route
 
-class MainHandler(tornado.web.RequestHandler):
-    def get(self):
-        self.write("Hello, world")
-
-application = tornado.web.Application([
-    (r"/", MainHandler),
-])
+url = Route.getAppRoute()
+application =  tornado.web.Application(
+    url
+)
 
 if __name__ == "__main__":
     port = 8888
